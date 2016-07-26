@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Yustynn/raspy/issues"
   },
-  "homepage": "https://github.com/Yustynn/raspy#readme"
+  "homepage": "https://github.com/Yustynn/raspy#readme",
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
 }
