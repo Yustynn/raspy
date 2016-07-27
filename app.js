@@ -2,7 +2,7 @@ var gpio = require("gpio");
 var gpio22, gpio4, intervalTimer;
 
 // Flashing lights if LED connected to GPIO22
-gpio22 = gpio.export(22, {
+gpio22 = gpio.export(3, {
    ready: function() {
       intervalTimer = setInterval(function() {
          gpio22.set();
@@ -13,7 +13,7 @@ gpio22 = gpio.export(22, {
 
 // Lets assume a different LED is hooked up to pin 4, the following code
 // will make that LED blink inversely with LED from pin 22
-gpio4 = gpio.export(3, {
+gpio4 = gpio.export(3 , {
    ready: function() {
       // bind to gpio22's change event
       gpio22.on("change", function(val) {
