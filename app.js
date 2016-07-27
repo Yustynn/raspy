@@ -1,15 +1,28 @@
-var Gpio = require('pigpio').Gpio,
-  motor = new Gpio(3, {mode: Gpio.OUTPUT}),
-  pulseWidth = 1000,
-  increment = 100;
+var gpio = require('rpi-gpio');
 
-setInterval(function () {
-  motor.servoWrite(pulseWidth);
+var pin   = 3;
+var delay = 500;
+var count = 0;
+var max   = 3;
 
-  pulseWidth += increment;
-  if (pulseWidth >= 2000) {
-    increment = -100;
-  } else if (pulseWidth <= 1000) {
-    increment = 100;
-  }
-}, 1000);
+gpio.setup(pin, gpio.DIR_OUT, on);
+
+function on() {
+    if (count >= max) {
+        gpio.destroy(function() {
+            console.log('Closed pins, now exit');
+        });
+        return;
+    }
+
+    setTimeout(function() {
+        gpio.write(pin, 1, off);
+        count += 1;
+    }, delay);
+}
+
+function off() {
+    setTimeout(function() {
+        gpio.write(pin, 0, on);
+    }, delay);
+}
