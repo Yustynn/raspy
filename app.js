@@ -1,6 +1,6 @@
 var gpio = require('rpi-gpio');
 
-var pin   = 3;
+var pin   = 4;
 var delay = 1000;
 var count = 0;
 var max   = 10;
