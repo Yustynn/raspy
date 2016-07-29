@@ -13,4 +13,4 @@ setInterval(function () {
   } else if (pulseWidth <= 1000) {
     increment = 100;
   }
-}, 250);
+}, 50);
