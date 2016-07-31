@@ -9,8 +9,8 @@ setInterval(function () {
 
   pulseWidth += increment;
   if (pulseWidth >= 2000) {
-    increment = -100;
+    increment = -500;
   } else if (pulseWidth <= 1000) {
-    increment = 100;
+    increment = 500;
   }
 }, 500);
